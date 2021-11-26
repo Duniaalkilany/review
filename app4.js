@@ -16,36 +16,32 @@ travel.push(this)
 let container = document.getElementById('container')
 let p=document.createElement('p')
 container.appendChild(p)
-Travel.prototype.render=function(id){
+// Travel.prototype.render=function(id){
 
-let nameData=document.createElement('h3')
-p.appendChild(nameData)
-nameData.textContent="Place Name:"+" "+this.name
+// let nameData=document.createElement('h3')
+// p.appendChild(nameData)
+// nameData.textContent="Place Name:"+" "+this.name
 
-let placeData=document.createElement('h3')
-p.appendChild(placeData)
-placeData.textContent=`Trip Place: ${this.place}`
+// let placeData=document.createElement('h3')
+// p.appendChild(placeData)
+// placeData.textContent=`Trip Place: ${this.place}`
 
-let transportData=document.createElement('h3')
-p.appendChild(transportData)
-transportData.textContent=`Type Of Transport: ${this.tarnsport}`
+// let transportData=document.createElement('h3')
+// p.appendChild(transportData)
+// transportData.textContent=`Type Of Transport: ${this.tarnsport}`
 
-//element for the img //create img from place selected data
+// //element for the img //create img from place selected data
 
-let img=document.createElement('img')
-p.appendChild(img)
-img.setAttribute('src',`imgs/${this.place}.png`)
+// let img=document.createElement('img')
+// p.appendChild(img)
+// img.setAttribute('src',`imgs/${this.place}.png`)
 
-let span=document.createElement('span')
-p.appendChild(span)
+// let span=document.createElement('span')
+// p.appendChild(span)
 
-span.innerHTML = `<button onclick="deleteItem(${id})">delete</button>`;
-}
-// function renderAll() {
-//     for( let i in travel ){
-//      travel[i].render();
-//     }
-//   }
+// span.innerHTML = `<button onclick="deleteItem(${id})">delete</button>`;
+// }
+
 function renderAll(id){
     for (let i = 0; i < travel.length; i++) {
 
@@ -94,8 +90,8 @@ let transport=event.target.transport.value
 let newTravel= new Travel(name,place,transport)
 //save to LS 
 saveToLocal()
-newTravel.render()
-
+// newTravel.render()
+travel.push(newTravel)
 //see each instance i created 
 
 }
@@ -130,7 +126,7 @@ travel.splice(id,1)
 
 saveToLocal()
 
-
+//  renderAll(id).innerHTML=''
 }
 
 

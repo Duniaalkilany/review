@@ -62,3 +62,29 @@ so array of all objs that i am created i convert it ti strings ===>json.stringif
 //splice
 
 The splice() method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place
+
+//styling
+1.external //using link tag
+
+<link href='style.css'>
+
+2.internal css===> i add style element/attribute in the html
+
+<head>
+<style>
+    h1{
+        color:red;
+
+    }
+
+</style>
+</head> page insude it i do my style
+3.inline ===> inside the tag it self
+<h1 style="color:red ; text-alighn:center"></h1>
+
+//hoe to add external font
+
+//bg img
+background-image:url("https://image.freepik.com/free-photo/hand-painted-watercolor-background-with-sky-clouds-shape_24972-1095.jpg") ;
+
+&copy;Dunia Alkilany
