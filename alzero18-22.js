@@ -163,19 +163,24 @@ let b = "20";
 let c = 80;
 
 console.log("o/p1", ++a + +b++ + +c++ - +a++); //11+20+80-11//===>100
-console.log(++a + -b + +c++ - -a++ + +a); //13+-21+82--13+14
-console.log(--c + +b + --a * +b++ - +b * a + --a - +true);
+console.log("o/p2", ++a + -b + +c++ - -a++ + +a); //13+-21+82--13+14//===>100
+console.log("o/p3", --c + +b + --a * +b++ - +b * a + --a - +true); //81+21+13*21-22*13+12-1//===>100
+let g1 = 10;
+console.log(g1++); //10//value of g will be 11
+console.log(g1++); //11//value og g will be 12
+console.log(++g1); //13
+console.log(g1); //13
 
 /*
   [++a] [+]
   [++a]
   - Value:11
-  - Explain:pre increnent
+  - Explain:pre increment
   [+]
   - Explain:addition operator 
   [+b++]
   - Value:20
-  - Explain:post increment //value of b will be//21
+  - Explain:post increment//unary plus //value of b will be//21
   [+]
   - Explain:addition operator
   [+c++]
@@ -213,6 +218,49 @@ console.log(--c + +b + --a * +b++ - +b * a + --a - +true);
  [+a]
   - Value:14
   - Explain:value of a that saved after last post increment
+*/
+
+/*
+ 
+  [--c]
+  - Value:81
+  - Explain:pre decrement
+  [+]
+  - Explain:addition operator 
+  [+b]
+  - Value:+21
+  - Explain:unary plus
+  [+]
+  - Explain:addition operator
+  [--a]
+  - Value:13
+  - Explain:pre decrement
+  [*]
+  - Explain:multiplication operator
+[+b++]
+  - Value:21//value of b will be 22
+  - Explain:post increment /unary plus
+  [-]
+ - Explain:subtraction operator operator
+ [+b]
+  - Value:22
+  - Explain:unary plus
+ [*]
+   - Explain:multiplication operator
+[a]
+  - Value:13
+  - Explain:last value saved for a 
+ [+]
+  - Explain:addition operator
+[--a]
+  - Value:12
+  - Explain:pre decrement 
+
+[-]  
+- Explain:subtraction operator
+[+true]
+  - Value:1
+  - Explain:unary plus 
 */
 /*
   Challenge 2
