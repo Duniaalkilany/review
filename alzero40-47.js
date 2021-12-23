@@ -134,7 +134,7 @@ console.log(myFriends1.pop()); //manar
   Arrays Methods [Search]
   - indexOf(Search Element, From Index [Opt])
   - lastIndexOf(Search Element, From Index [Opt])
-  - includes(valueToFind, fromIndex [Opt]) [ES7]===indexOF("")>=0
+  - includes(valueToFind, fromIndex [Opt]) [ES7]===indexOF("")>=07
 */
 
 let myFriends2 = ["Ahmed", "Mohamed", "Sayed", "Alaa", "Mohamed", "Ahmed"];

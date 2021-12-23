@@ -226,6 +226,9 @@ console.log(sentance.split(" ", 2)); //["Elzero","Web"]
   - includes(Value [Mand], Start [Opt] Default 0(index)) [ES6]
   - startsWith(Value [Mand], Start [Opt] Default 0) [ES6]
   - endsWith(Value [Mand], Length [Opt] Default Full Length) [ES6]
+  -replace//rrturn new string with replacement value //string.replace("old","new")
+  -to check if lettet is capital 
+  1.letter.toUpperCase()=letter===>true===>capital//false===>small
 */
 
 let string = "Elzero Web School";
