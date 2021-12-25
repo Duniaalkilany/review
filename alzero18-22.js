@@ -11,7 +11,7 @@
   ++ Increment [ Post(after) / Pre(before) ]
   -- Decrement [ Post / Pre ]
 */
-
+//undefined+number==> NAN
 console.log(10 + 20); //ari operator +
 console.log(10 + "Osama"); //concatenation//10Osama//output===>string
 console.log(typeof (10 + "Osama"));
