@@ -93,7 +93,7 @@ console.log(Number.isNaN(Number("dunia"))); //true
   - max()
   - pow()
   - random()
-  - trunc() [Es6]
+  - trunc() [Es6]//floatto integer
 */
 
 console.log(Math.round(10.47)); //10
