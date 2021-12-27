@@ -305,6 +305,21 @@ console.log(joined);
 console.log(allfriends.join(" | "));
 console.log(allfriends.join("|").toUpperCase()); //can use any string nethod
 
+/*
+  Arrays Methods [flat]
+ 
+*/
+
+const arr1 = [0, 1, 2, [3, 4]];
+
+console.log(arr1.flat());
+// expected output: [0, 1, 2, 3, 4]
+
+const arr2 = [0, 1, 2, [[[3, 4]]]];
+
+console.log(arr2.flat(2));
+// expected output: [0, 1, 2, [3, 4]]
+
 //==================================video 47=====================================//
 /*
   Array Challenge

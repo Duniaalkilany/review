@@ -306,5 +306,127 @@ console.log("4" * "2"); //8
   ---------- Otherwise, it starts from index 1.
   - Array => The Current Array
 */
-
+//sum of all elements
 let nums = [10, 20, 15, 30];
+
+let reducing = nums.reduce(function (acc, cur, idx, arr) {
+  console.log(`Acc=>${acc}`);
+  console.log(`current value=>${cur}`);
+  console.log(`current index=>${idx}`);
+  console.log(`current Array=>${arr}`);
+  console.log(acc + cur);
+  return acc + cur;
+}, 5); //[5,10,20,15,30]
+
+/*==========================================video 76======================================*/
+/*
+  Reduce
+  - Longest Word
+  - Remove Characters + Use Reduce
+  /////////////////////use reduce like join method
+*/
+
+let theBiggest = [
+  "Bla",
+  "Propaganda",
+  "Other",
+  "AAA",
+  "Battery",
+  "Test",
+  "Propaganda_Two",
+];
+
+let big = theBiggest.reduce(function (acc, cur, idx, arr) {
+  //   console.log(`acc==>${acc}`);
+  //   console.log(`cur==>${cur}`);
+  //   console.log(`idx==>${idx}`);
+  //   console.log(acc.length > cur.length ? acc : cur);
+  return acc.length > cur.length ? acc : cur;
+});
+console.log(big);
+
+let removeChars = ["E", "@", "@", "L", "Z", "@", "@", "E", "R", "@", "O"];
+// let out = removeChars
+//   .filter(function (ele) {
+//     return ele === "@";
+//   })
+//   .join("");
+//instead og using join (join element of the array===>one value (string))
+//return @ //filter chars
+// let out = removeChars
+//   .filter(function (ele) {
+//     return ele === "@";
+//   })
+//   .reduce(function (acc, cur, idx, arr) {
+//     return acc + cur;
+//   });
+// console.log(out);//"@@@@"
+
+let out = removeChars
+  .filter(function (ele) {
+    return !ele.startsWith("@");
+  })
+  .reduce(function (acc, cur, idx, arr) {
+    // return acc + cur;
+    return `${acc}${cur}`;
+  });
+console.log(out); //ELZERO
+
+/*==========================================video 77======================================*/
+/*
+  - forEach
+  --- method executes a provided function once for each array element.
+
+  Syntax forEach(callBackFunction(Element, Index, Array) { }, thisArg)
+  - Element => The current element being processed in the array.
+  - Index => The index of the current element being processed in the array.
+  - Array - The Current Array
+
+  Note
+  - Doesnt Return Anything [Undefined]
+  - Break Will Not Break The Loop
+*/
+/*==========================================video 78======================================*/
+/*
+  Higher Order Functions Challenges
+
+  You Can Use
+  - ,
+  - _
+  - Space
+  - True => 1 => One Time Only In The Code
+
+  You Cannot Use
+  - Numbers
+  - Letters
+
+  - You Must Use [Filter + Map + Reduce + Your Knowledge]
+  - Order Is Not Important
+  - All In One Chain
+
+*/
+
+let myString = "1,2,3,EE,l,z,e,r,o,_,W,e,b,_,S,c,h,o,o,l,2,0,Z";
+
+//filter/reduce/map====>array method
+//string===>split()===>array
+//numbers//_//,====>no need
+// leterZ = myString[myString.length - true];
+// console.log(leterZ);
+let solution = myString
+  .split("")
+  .filter(function (ele) {
+    return (
+      ele !== "," &&
+      isNaN(parseInt(ele)) &&
+      ele !== myString[myString.length - true]
+    );
+  })
+  .map((ele) => {
+    return ele === "_" ? " " : ele;
+  })
+  .reduce((acc, cur, idx, arr) => {
+    return acc === cur ? acc : acc + cur;
+  });
+
+console.log(solution); // Elzero Web School
