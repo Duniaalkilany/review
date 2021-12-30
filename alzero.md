@@ -90,3 +90,9 @@ opening===>inspect===>console(very useful developer tool //logs//running js )
 https://developer.mozilla.org/en-US/docs/Web/API
 
 # ES6===>ECMAScript
+
+//object
+//oop
+//BOM
+//
+//json /api's
