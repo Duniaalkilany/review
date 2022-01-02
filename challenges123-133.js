@@ -46,7 +46,7 @@ let myMap=new Map([[stringKeys[0],objValues[0]],[stringKeys[1],objValues[1]],[st
 //   true
 
 
-//
+
 console.log(Array.isArray(Object.entries(myInfo) ) );
 console.log(Object.entries(myInfo));//[[key,value],[],[]]//array of arrays 
 
@@ -91,41 +91,33 @@ console.log(Object.keys(name));//['0', '1', '2', '3', '4']
 
 //challenge 6
 
-// let chars = ["A", "B", "C", "D", "E", 10, 15, 6];
-let chars = ["A", "B", "C", 20, "D", "E", 10, 15, 6];
+let chars = ["A", "B", "C", "D", "E", 10, 15, 6];
+// let chars = ["A", "B", "C", 20, "D", "E", 10, 15, 6];
 // let chars = ["Z", "Y", "A", "D", "E", 10, 1];
-//lopp through array ===>ele number count + 
-//for loop //type number [array of numbers]
-//concat 
-//.coppyWithin(0,)
 
-let removed=[]
 
-    for(let i=0;i<chars.length;i++){
-      
-        if (typeof chars[i]==="number"){
-          console.log(chars[i]);
-          console.log(i);
-    removed=chars.splice(i,1)//array updated//also i have removed elements returned 
+for (let i = 0;i<chars.length;i++){
+//numbers //removed //put it at the first
 
-console.log(removed);
-        }
-    }
+if (typeof chars[i]==="number"){
 
-    let conc=[...removed,...chars]
-    console.log('firstttt',conc);
-  for (let i=0;i<conc.length;i++){
-      if(typeof conc[i]==="string"){
-         start=i
-         break
-      }
-  }
-  console.log(start);    
 
-    console.log(conc);
-    conc.copyWithin(0,start,start+removed.length)
-    console.log(conc)
-// console.log(chars);
+chars.unshift(...chars.splice(i,1))
+
+}
+}
+console.log(chars);
+//find indexof first string 
+
+let idx=chars.findIndex((ele)=>{
+return typeof ele==="string"
+})
+console.log('idx Of first chars in the array',idx);
+console.log('unshift to the begining',chars);
+//copywithin 
+chars.copyWithin(0,idx,idx+idx)
+console.log(chars);
+
 
 //challenge7
 let numsOne = [1, 2, 3];
@@ -153,3 +145,6 @@ let numsTwo = [4, 5, 6];
 console.log(Array.from([numsOne,numsTwo]).flat());
 
 console.log(Array.of(...numsOne,...numsTwo));
+
+
+
