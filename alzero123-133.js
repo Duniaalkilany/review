@@ -741,6 +741,6 @@ let objTwo = {
   c: 3,
   d: 4,
 };
-let allObjs={...objOne ,...objTwo}
+let allObjs={...objOne ,...objTwo,e:5}
 console.log(allObjs);
 console.log({...objOne ,...objTwo});
