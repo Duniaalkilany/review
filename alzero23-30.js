@@ -150,6 +150,7 @@ console.log(Math.ceil(b) / Math.ceil(d)); // 67 => Number
   - toUpperCase()
   - toLowerCase()
   - Chain Methods//using more than one method together 
+  -String.charCodeAt()//
 */
 let theName = "dunia";
 let theName2 = "   dun ia       ";

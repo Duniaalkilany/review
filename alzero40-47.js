@@ -199,10 +199,27 @@ console.log(sentance.indexOf("o", 6)); //15//start from index 6
 //==================================video 44=====================================//
 /*
   Arrays Methods [Sort]
-  - sort(Function [Opt])
-  - reverse
+  - sort(Function [Opt])//sort is array method===>sorting===>numbers===>alpha(capital//small)===>تصاعدي
+  -sort()
+  /*
+  // Functionless
+sort()
+//Because of this, the sort() method will produce incorrect result when sorting numbers.
+
+You can fix this by providing a compare function:
+// Arrow function
+sort((firstEl, secondEl) => {  } )
+
+
+//sort(compareFn)
+==>take 2 elements (a,b)
+===>return a-b===>>0(a bigger than b ==>sort b before a )===><0(a<b)===>a before b ===>0keep original ordering of a , b 
+
+// Inline compare function
+sort(function compareFn(firstEl, secondEl) {  })//named or anonymous 
+ - reverse*/
   //array//using sort //new array will sorted //also original sorted //so if i do changes on array it affected original//updated//so the second change will update the updated array
-*/
+
 let myFriends3 = [10, "Sayed", "Mohamed", "90", 9000, 100, 20, "10", -20, -10];
 console.log(myFriends3);
 console.log(myFriends3.sort()); //i will use compare function to sort according to what i want
@@ -211,6 +228,46 @@ console.log(myFriends3.reverse()); //new update//reverse
 console.log(myFriends3); //updated (sorted ,reversed)
 //chain with array
 console.log(myFriends3.sort().reverse());
+
+
+//examples with sort //compare function //returned sorted /updated the original 
+const points = [40, 100, 1, 5, 25, 10];
+// console.log(points.sort());//[1,10,100,25,40,5]
+//using compare function //in ascending order 
+function compare(a,b){
+return a-b 
+}
+// console.log(points.sort(compare));// [1, 5, 10, 25, 40, 100]
+// console.log(points.sort((a,b)=>{return a-b}));// [1, 5, 10, 25, 40, 100]
+
+// console.log(points.sort(function(a,b){return a-b }));//[1, 5, 10, 25, 40, 100]
+//Find the Highest (or Lowest) Array Value
+
+function findHL(arr){
+arr.sort((a,b)=>{
+  return a-b 
+})
+//highest
+return `highest:${arr[arr.length-1]},lowest:${arr[0]}`
+
+}
+// console.log(findHL(points));
+
+//if i want to sort (bigger===>lower(تنازلي))
+function comp2(a,b){
+return b-a
+}
+
+// console.log(points.sort(comp2));// [100, 40, 25, 10, 5, 1]
+
+//to find highest/lowest of array using Math obj 
+function fHL(arr){
+  return Math.max(...arr)
+}
+console.log(fHL(points));
+
+
+
 
 //==================================video 45=====================================//
 /*
@@ -223,6 +280,7 @@ console.log(myFriends3.sort().reverse());
   --- Return New Array
   - splice(Start [Mand], DeleteCount [Opt] [0 No Remove], The Items To Add [Opt])
   --- If Negative => Start From The End
+  -Math.max.apply(null,arr)
 */
 
 let myFriends4 = ["Ahmed", "Sayed", "Ali", "Osama", "Gamal", "Ameer"];
