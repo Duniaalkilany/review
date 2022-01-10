@@ -186,7 +186,7 @@ let user = new object({
 
 3. i can updated obj proparty by accessing the proparty(dot notation//bracket notataion) then assighn (=)new value to it 
 4.also you can add new proparty (objName.propartyName//objName["proName"])=value 
-5.as the previouse i can add unction //method to the obj 
+5.as the previouse i can add function //method to the obj 
 objName.funName=function(){
 
 }
