@@ -754,6 +754,122 @@ let myArr = [1, 2, 3, 4];
 console.log(myArr);
 console.log(Array.prototype);
 //if i create new instance with out new  //if i want to show error that you not use new
-let uu = UInfo("dalia"); //nothing will happen//no object created
+// let uu = UInfo("dalia"); //nothing will happen//no object created
 // console.log(uu); //undefined
 //if i want to show error that you not use new
+
+//===============================Class Syntax And Introduction=============================//
+/*
+class syntax===>ES6
+another syntax ===>same result as constructor function 
+so class is constructor to create objs//same standers (معايير) to other programmeing languages 
+*/
+
+//classic constructor function
+//important thing i can create instances before constructor declearation
+// let info1 = new Info("dunia", "d@gmail.com");
+// let info2 = new Info("doodo", "doodo@gmail.com");
+// function Info(name, email) {
+//   this.name = name;
+//   this.email = email;
+//   this.sayHi = function () {
+//     return `hi ${this.name}`;
+//   };
+// }
+
+//constructor function ===>quick fix (convert construction to class ES6(2015))
+
+//class syntax
+class Info {
+  //my constructor function
+  constructor(name, email) {
+    this.name = name;
+    this.email = email;
+    // this.sayHi = function () {
+    //   return `hi ${this.name}`;
+    // };
+  }
+  //methods//inside prototype
+  sayHi() {
+    return `hi ${this.name}`;
+  }
+  showEmail() {
+    return `${this.email}`;
+  }
+}
+//create instances from class
+//1.but i can not create it before class //should after class decleration//can not access class before initialization for it
+let info1 = new Info("dunia", "d@gmail.com");
+let info2 = new Info("doodo", "doodo@gmail.com");
+console.log(info1);
+console.log(info2);
+
+//2.writing methods/no comas /after constructor
+
+//=========================== Class Static Properties And Methods===========================//
+
+class UserClass {
+  //static proparties//startt with static
+  static counter = 0;
+
+  constructor(name, email, counter) {
+    this.name = name;
+    this.email = email;
+    //this counter prpoarty related to the created instances
+    this.counter = counter;
+    //i can not write this.counter++//cause this inside constructor related to the created object ===> object did not have counter proparty ===> cunter is static proparty related to the class it self
+    UserClass.counter++;
+  }
+
+  sayHello() {
+    return `hello${this.name}`;
+  }
+
+  showMail() {
+    return `your email : ${this.email}`;
+  }
+
+  //static method
+  static countObjects = function () {
+    //this inside the static methods is the class (تعود عل class )==>not created objects
+    //this.counter===> mean class.counter===UserClass.counter
+    return `${this.counter} objects created by the class`;
+  };
+}
+let userClass = new UserClass("dunia", "dd@gmail.com", 2);
+console.log(typeof UserClass); //function
+console.log(userClass instanceof UserClass);
+console.log(userClass.constructor === UserClass);
+console.log(userClass);
+console.log(UserClass.prototype);
+console.log(UserClass === UserClass.prototype.constructor);
+// i don not have to add error when i do not write new//automatically
+
+// let userClass2 = UserClass("dunia", "dd@gmail.com"); //Class constructor UserClass cannot be invoked without 'new'
+
+function Testing(name) {
+  this.name = name;
+
+  // if (!(this instanceof Testing)) {
+  //   console.log(`constructor can not be invoked wit out new keyword`);
+  // }
+
+  // if (this.constructor !== Testing) {
+  //   throw new Error("constructor can not be invoked wit out new keyword");
+  // }
+  if (!new.target) {
+    //ES6
+    throw new Error("constructor can not be invoked with out new keyword");
+  }
+}
+
+// let test = Testing("duniaa");
+//no need to do the previouse with class syntax
+
+//static proparties /methods ===>something related to the class it self not objects/instances created by it
+// console.log(userClass.countObjects()); //not function //not related to the created object
+
+//to access ststic methods /proparties i use classname.
+console.log(UserClass.countObjects());
+console.log(UserClass.counter); //1===>counter ===>static proparty related to class
+console.log(userClass.counter); //2===>proparty related to created instances
