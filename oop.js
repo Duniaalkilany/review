@@ -597,3 +597,163 @@ console.log(userr2);
   Constructor Function 80%
   Built In Constructors
 */
+
+//============================prototype 1==========================================================//
+/*
+there is some thing called prototype ==> inside theobj ==> related to the function inside the object
+so the new way to build the method // instead to build the method or function inside the object or tje 
+constructor function // i build it outside the construtor  function but its related to the constructor  called it  prototype //decleare a function oytside the constructor
+
+build prototype outside the constructor // i can use this keyword inside the prototype //cause it is related 
+to the constructor 
+
+*/
+
+function Users(name) {
+  this.name = name;
+  this.welcome = function () {
+    return `Welcom ${this.main}`;
+  };
+}
+//create instances
+let u1 = new Users("dunia");
+let u2 = new Users("sara");
+
+//what is prototype
+console.log(Users.prototype); //{constructor: ƒ}
+
+function sayHello() {
+  console.log(`hello`);
+}
+console.log(sayHello.prototype); //{constructor: ƒ}
+
+/*so prototype is a property for a function ===>and it is object {constructor:f}
+(in prototype object===>proparty:value//proparty is constructor/value is  the function )
+/each instance created from the constructor will inherit all properties of  constructor proptotype 
+ */
+//this arr is instance of Array constructor
+const arr = [1, 2, 3, 4, 5];
+console.log(arr.constructor); //ƒ Array()//the constructor which build this array
+console.log(Array.prototype); //all proparties of Array constructor
+//arr is instance so it can inherit all the proparties in Array.prototype(constructor)
+console.log(arr.reverse()); //i use push method which related to Array constructor
+
+//=======================prototype2//add methods/properties to Prototype Chain============================================================//
+function User_(name) {
+  this.name = name;
+  this.welcome = function () {
+    return `Welcome ${this.name}`;
+  };
+}
+let user_1 = new User_("Osama");
+let user_2 = new User_("Ahmed");
+console.log(user_1);
+
+console.log(User_.prototype);
+
+//add new method /proparty to the constructor
+User_.prototype.addTittle = function () {
+  return `hello ${this.name}`;
+};
+
+console.log(User_.prototype); //{addTittle: ƒ, constructor: ƒ}
+//when i add new method to the constructor ===>added to the prototype
+//as we said each instance will inhert the constructor prototype properties and methods so the instance will have access to the new method
+
+console.log(user_1.addTittle()); //hello Osama
+
+//one of the built in onstructors is Object/Number/String
+console.log(Object.prototype);
+//if i want add method to Object constructor
+Object.prototype.helloObject = function () {
+  return `hello Object`;
+};
+Object.prototype.type = "Object";
+let obj1 = new Object();
+console.log(obj1.helloObject()); //hello Object
+console.log(obj1.type); //"Object"
+
+let obj2 = { 1: "one", 2: "two" };
+console.log(obj2.type);
+console.log(obj2.helloObject());
+console.log(obj2);
+console.log(obj2.constructor); //ƒ Object() { [native code] }
+
+//========================= Extend Constructors Features========================================//
+
+console.log(String.prototype);
+
+let myString = "dun";
+//if i want to add new method to String constructor//all created strings access (inherit) this method
+//this ===>this is the instance created so if i build string called myString from the String constructor /this inside the constructor reffer to this instance
+String.prototype.zFill = function (width) {
+  let result = this; //string created by String constructor
+  console.log(result);
+  while (result.length < width) {
+    result = `0${result}`;
+  }
+  return result.toString();
+};
+
+console.log(myString.zFill(5));
+let str2 = "manar";
+console.log(str2.zFill(10)); //00000manar
+console.log("malek".zFill(10)); //00000malek
+
+//add another method to String prototype
+String.prototype.sayYouLoveMe = function () {
+  return `hello ${this} we love you `;
+};
+
+console.log("dunia".sayYouLoveMe());
+
+String.prototype.howLong = function () {
+  return `your length:${this.length}`;
+};
+
+console.log("dunia".howLong());
+
+//==========================================Prototype chain===========================================//
+/*
+  Prototype
+  [1] Every Object Has A Prototype
+  [2] Prototype Chain Ends With Object.prototype
+  [2] In Javascript Function Is Object
+*/
+
+function UInfo(name) {
+  /*
+    [1] Create Empty Object
+    [2] Assign The New Object To this Context
+    [3] New Object Created Prototype = Function Prototype
+    this = {};
+    this.__proto__ = User.__proto__
+  */
+  this.name = name;
+  /*
+      [4] Return The New Object
+      return this
+    */
+  //if i want to show error that you not use new
+
+  // if (!(this instanceof UInfo)) {
+  //   // console.log("Error");
+  //   throw new Error("Must Be Called With New Keyword");
+  // }
+  //ES6
+  if (!new.target) {
+    throw new Error("missing new keyword");
+  }
+}
+
+let u = new UInfo("dunia"); //new object /instance
+console.log(UInfo.prototype);
+console.log(u);
+
+let myArr = [1, 2, 3, 4];
+console.log(myArr);
+console.log(Array.prototype);
+//if i create new instance with out new  //if i want to show error that you not use new
+let uu = UInfo("dalia"); //nothing will happen//no object created
+// console.log(uu); //undefined
+//if i want to show error that you not use new
