@@ -1,19 +1,66 @@
-/*a collection of data items with pre-defined relationships between them. These items are organized as a set of tables with columns and rows. ... Each row in a table could be marked with a unique identifier called a primary key, and rows among multiple tables can be made related using foreign keys.
-sQL is a programming language that is used by most relational database management systems (RDBMS) to manage data stored in tabular form (i.e. tables). A relational database consists of multiple tables that relate to each other. The relation between tables is formed in the sense of shared columns
+/*
 OOP===> object oriented programming (paradigm or style the code)===>)(طريقة لكتابة الكود )===> OPP is not a language or tool id a a paradigm the code.
 use the concepot of object ===> to desighn computer program
 js/java/python /c sharp /c++
-procedural programming vs OOP(بشكل عام بغض النظر عن )
+===>OOP===>programming paradigm //(style of programming) cantered around objects rather than functions 
+===>Four Pillars/concepts of OOP:
+ 1.Encapsulation ==>(in OOP we grouped all related variables and functions in one unit called objects )
+ 2.Abstraction,
+ 3. Inheritance, 
+ 4.Polymorphism.
+
 */
+//============================1.encapsulation/reduce complexity/increase reuseability(reuse the object in different part of program or in differen programmes)=======================================
+//procedural programming ===> variables/ function
+let baseSalery = 500;
+let overTime = 10;
+let rate = 20;
+
+function getWage(baseSalery, overTime, rate) {
+  return `Wage: ${baseSalery + rate * overTime}`;
+}
+//in OOP==>object(related variables/functions in a group ===># of parameters in my function less )
+let Wage = {
+  baseSalery: 500,
+  overTime: 10,
+  rate: 20,
+  //note that getWage function is without parameters ===> because this parameters is already declared as proparties
+  //so in OOP (fewer parameters )//best functions is this with no paerameters so OOP is efficent to make the # of parameters in functions less
+  getWage: function () {
+    return `Wage: ${this.baseSalery + this.rate * this.overTime}`;
+  },
+};
+//============================2.Abstraction(hide details and complixity and show onlythe essentials)=======================================
+/*hide some proparties and methods from the outside
+two benefits of Abstraction
+1.simpler interface===>make the interface of object simpler===> understanding object with a few methods
+and proparties is easier than object with several proparties and methods
+2.reduce the impact of change ===>if i change these inner or private methods none of thses changes
+will leak to the outside because we do not have any code that touchesthse methods outside of 
+their content object , so you can delete a method , edit it /change it is parameyers but none of 
+thses changes will impact the rest of the application code 
+
+//============================3.inheritance(reusable)=======================================
+===> inheritance is a mechanism  allowes you to eliminate the redundant code
+//parent/childs(delivered)===> if i have objects have same proparties and methods ===> if i rewritr
+these methods.proparties each time i will have redundant code so i declare parent class then child classes inherit these proparties/methods from it 
+
+//============================4.Polymorphism===>(many forms)//refactor of ugly (swich case statements)=======================================
+poly===>many
+morphism==>form
+polymorphism===>technique that allows you to get rid of long ethanols or swich and case statements
+
+
 /*
+procedural programming vs OOP(بشكل عام بغض النظر عن )
 procedural programming
-1.programe devided into variables and functions 
+1.programe devided into variables and functions //devided function into set og functions 
 2.overloading is not possible 
 3.hiding data not possible
 4.data is sepearated
 
 OOP:
-1.program devided into obj+methods
+1.program devided into obj (combined group of related variables(proparties) and functions(methods) in one unit called object)
 2.overloading is possible  
 3.hiding data is possible
 4.data not sepearated (in one location)===> i have class (have all probarties and all methods )
@@ -32,11 +79,12 @@ OOP:
 */
 
 /*
-  Defining Object
+  Defining Object/craeate object/collection of key:value pairs
   [1] Object Literal
   [2] With New Keyword
   [3] With Object.create()
   [4] With Object.assign()
+  
 
 */
 
@@ -118,7 +166,7 @@ console.log(user["addresses"]["getMainAddress"]());
 
 /*
  Dot Notation vs Bracket Notation
- dot notation is better and 
+ dot notation is better and faster
 */
 let myObj = {
   One: 1,
@@ -476,11 +524,13 @@ let phone5 = Phones(125698);
 console.log(phone5); //undefined
 // console.log(phone5.serial); //undefined
 console.log(window.serial); //125698
-
-//constructor ====>create instances (نسخة او نموذج منه)
-//instanceOf===>to check the instance /constructor related to each other
-//1.instanceof
-//2.nameOfInstance.constructor===nameOfConstructor
+//===================================constructor property=================================================
+/*constructor ====>create instances (نسخة او نموذج منه)
+instanceOf===>to check the instance /constructor related to each other
+1.instanceof
+2.nameOfInstance.constructor===nameOfConstructor
+**all objects have constructor property===>reffer to the constructor which created this object
+*/
 
 console.log(phone3 instanceof Phones);
 console.log(phone5 instanceof Phones);
@@ -1131,3 +1181,14 @@ console.log(testt1.name.last);
 console.log(testt1.name);
 console.log(testt1.sayHii());
 console.log(testt1.showAge());
+
+/* four principles of object-oriented-programming: 
+1.Encapsulation,
+ 2.Abstraction,
+ 3. Inheritance, 
+ 4.Polymorphism.
+*/
+
+/*
+
+*/
