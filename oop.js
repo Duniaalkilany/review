@@ -665,17 +665,17 @@ console.log(user_1.addTittle()); //hello Osama
 //one of the built in onstructors is Object/Number/String
 console.log(Object.prototype);
 //if i want add method to Object constructor
-Object.prototype.helloObject = function () {
-  return `hello Object`;
-};
-Object.prototype.type = "Object";
-let obj1 = new Object();
-console.log(obj1.helloObject()); //hello Object
-console.log(obj1.type); //"Object"
+// Object.prototype.helloObject = function () {
+//   return `hello Object`;
+// };
+// Object.prototype.type = "Object";
+// let obj1 = new Object();
+// console.log(obj1.helloObject()); //hello Object
+// console.log(obj1.type); //"Object"
 
 let obj2 = { 1: "one", 2: "two" };
-console.log(obj2.type);
-console.log(obj2.helloObject());
+// console.log(obj2.type);
+// console.log(obj2.helloObject());
 console.log(obj2);
 console.log(obj2.constructor); //ƒ Object() { [native code] }
 
@@ -873,3 +873,261 @@ function Testing(name) {
 console.log(UserClass.countObjects());
 console.log(UserClass.counter); //1===>counter ===>static proparty related to class
 console.log(userClass.counter); //2===>proparty related to created instances
+
+//=========================== Class Inheritance===========================//
+/*
+  Class
+  Inheritance
+  
+  -parent class
+  -chils class/drived class
+*/
+//parent class
+class AppUsers {
+  constructor(name, email, counter) {
+    this.name = name;
+    this.email = email;
+  }
+  sayHello() {
+    return `hello ${this.name}`;
+  }
+  showEmail() {
+    return `email : ${this.email}`;
+  }
+  writeMsg() {
+    return `msg from parent class `;
+  }
+}
+//child class
+class Admin extends AppUsers {
+  //Admin class(child)==>extends(inherit) from parent(AppUsers)
+  ////extends for all proparties
+  constructor(name, email) {
+    //super//call parent constructor /can access proparties of it
+    super(name, email);
+  }
+  adminMsg() {
+    return `You Are Admin`;
+  }
+  //i have on method in the parent class then i override it in the admin class
+  //method override
+  writeMsg() {
+    return `msg from derived(child) class `;
+  }
+}
+let admin1 = new Admin("malek", "m@gmail.com");
+console.log(admin1);
+//access on parent class proparties
+console.log(admin1.name);
+console.log(admin1.email);
+
+//access on parent class methods
+console.log(admin1.sayHello());
+console.log(admin1.showEmail());
+//i have on method in the parent class then i override it in the admin class
+console.log(admin1.writeMsg());
+console.log(admin1.adminMsg());
+
+//=======================================getter/setter====================================//
+/*
+  JavaScript Accessors
+  Getters & Setters
+*/
+
+class G_STesting {
+  constructor(name, email) {
+    this.name = name;
+    this.email = email;
+  }
+  sayHello() {
+    return `Hello ${this.name}`;
+  }
+
+  //using get with class methods ===>convert it from method to property//combuted property//simple syntax
+  get showInfo() {
+    return `Name: ${this.name}, Email" ${this.email}`;
+  }
+  changeName(newName) {
+    this.name = newName;
+  }
+  //from method to property
+  //method need parameter
+  set changeEmail(newEmail) {
+    this.email = newEmail;
+  }
+}
+let test1 = new G_STesting("dunia", "d@gmail.com");
+// console.log(test1.showInfo()); //after using get //error==>test1.showInfo is not a function
+console.log(test1.showInfo);
+
+test1.changeName("doooodo");
+console.log(test1.name); //doooodo
+
+test1.changeEmail = "bbb@gmail.com";
+console.log(test1.email);
+
+console.log(test1.showInfo);
+
+//get /set ===> method===>combuted/dynaminc proparty ===>so i have better syntax
+
+//if i have privet proparty (can not acees to it out side class )//using get i can access it (inside)==>js do not support privete proparty
+
+//============================ Object Metadata And Descriptor=========================//
+/*
+  Object Meta Data(معلومات عن معلومات )
+  attributes:
+  writable
+  enumerable//can loop on it
+  configurable
+  value
+  ============
+  Object.defineProperty(obj, prop, descriptor)//to control my property 
+*/
+//each proparty in the oject have attribute(like value,configurable,...)
+//static method for object ===>defineProperty()===>define new prop or edit prop in the object
+const myObj4 = {
+  a: 1,
+  b: 2,
+};
+
+//define newProperty in this object
+
+Object.defineProperty(myObj4, "c", {
+  // descriptor attributes
+  configurable: true, //ca not delete it if false ///delete operator return false//alsr if i want to configure// redefined //this proparty if configurable false can not redefined this proparty //to redefine the descriptor of this proparty if true i can
+  value: 3,
+  writable: false,
+  enumerable: false,
+});
+
+Object.defineProperty(myObj4, "c", {
+  writable: true,
+});
+
+console.log(myObj4);
+
+console.log("#".repeat(20));
+//writable:i can rewrite this proparty (new value to it )//can updated the value of the proparty
+//if writable false===>value will not change // i can not re write value for this property
+myObj4.c = 100;
+console.log(myObj4);
+//enumerable// if false ca not iterate //تستثنى من looping
+
+for (i in myObj4) {
+  console.log(i, myObj4[i]);
+}
+//here i can not show c:100 theow iteration //but to know all proparties keys ["keysname"]
+console.log(Object.getOwnPropertyNames(myObj4));
+
+//configurable (can delete or not using delete operator)
+
+console.log(delete myObj4.c);
+
+//====================================Object.defineProperties & Trainings===============================//
+const testObj = {
+  a: 1,
+  b: 2,
+};
+//if i want to modefy property
+
+Object.defineProperty(testObj, "a", {
+  writable: false,
+  enumerable: false,
+  configurable: false,
+  value: 500,
+});
+
+console.log(testObj.a);
+//if i create new proparty using defineProperty all attributes default value===>false
+Object.defineProperty(testObj, "c", {
+  value: 4,
+});
+console.log(testObj);
+//if i did not edit the attributes ===>default values for it ====>false (i can not delete , redefined descriptor,redefined(rewrie value),can not iterate (not show (apeare in itteration )) )
+//testing
+//1.writable//redefined value
+testObj.c = 400;
+
+console.log(testObj.c); //4
+
+//2.configurable===>false
+//=============>2.a can not delete prop
+console.log(delete testObj.c); //false
+
+//=============>2.b can not regonfig redefined prop (descriptor)
+// Object.defineProperty(testObj, "c", {
+//   value: 50,
+// });
+
+//3.enumerable//false===>not apeare
+console.log(testObj);
+for (let i in testObj) {
+  console.log(i, testObj[i]);
+}
+console.log(Object.getOwnPropertyNames(testObj));
+console.log(Object.getOwnPropertyDescriptor(testObj, "a"));
+console.log(Object.getOwnPropertyDescriptor(testObj, "b")); //all true
+console.log(Object.getOwnPropertyDescriptor(testObj, "c")); //all false //default
+testObj.d = 8;
+console.log(Object.getOwnPropertyDescriptor(testObj, "d")); //all true
+
+//object keys===>getOwnPropartyNames
+//enumerable ===>false can not show key using Object.keys//but getOwnPropertyNames it show the key all names enen though each property enumeral value
+
+console.log(Object.keys(testObj));
+console.log(Object.getOwnPropertyNames(testObj));
+
+//defineProparties
+
+Object.defineProperties(testObj, {
+  e: {
+    value: 7,
+    writable: true,
+  },
+  g: {
+    value: 5,
+    enumerable: true,
+  },
+  f: {
+    value: 10,
+    writable: true,
+    enumerable: true,
+    configurable: true,
+  },
+});
+
+console.log(testObj);
+console.log(Object.keys(testObj)); //if enumerable false will not apear//just what i can iterate on it(enumerable=true)
+console.log(Object.getOwnPropertyNames(testObj)); //all keys
+//============================ Important Info And The End===========================//
+/*
+  Importants Notes And The End
+  [1] Arrow Functions Do Not Have a Prototype Property.//also can not use this inside it 
+  [2] You Can Use Objects Inside Constructor Freely
+  [3] f = function () {} ==== f() {}
+*/
+class FinalTest {
+  constructor(first, last, age) {
+    //can use object inside constructor
+    this.name = {
+      first: first,
+      last: last,
+    };
+    this.age = age;
+  }
+  sayHii() {
+    return `hi ${this.name.first} ${this.name.last}`;
+  }
+  //function expression as method
+  showAge = function () {
+    return `your Age: ${this.age}`;
+  };
+}
+
+//create instance
+let testt1 = new FinalTest("dunia", "kilany", 24);
+console.log(testt1.name.first);
+console.log(testt1.name.last);
+console.log(testt1.name);
+console.log(testt1.sayHii());
+console.log(testt1.showAge());
