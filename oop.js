@@ -437,6 +437,7 @@ console.log(eObj2.user); //undefined
 
 //======================================for...In ==============================================//
 /*
+enumerating proparties
   For ... In Loop
   Loop Through The Properties Of The Objects
 */
@@ -478,7 +479,31 @@ for (let i in newOb2) {
 console.log(data); //names:dunia dalia manar rawaa malek
 document.getElementById("info").innerHTML = data;
 // i use for in to iterate in objects and arrays
+for (let key in cir1) {
+  console.log(key, cir1[key]); //redius,draw,location
+  console.log("#".repeat(10));
+}
+//in for in loop its loop through all proparties and methods and return proparties and methods
+//if i want to loop only through proparties
 
+for (key in cir1) {
+  if (typeof cir1[key] === "function") continue;
+  console.log(key, cir1[key]);
+}
+
+//to get all keys of objects
+console.log(Object.keys(cir1)); //['radius', 'draw', 'location']
+
+//check if the object have given property
+if (cir1.location) {
+  console.log(`cir1 has location`);
+}
+
+//or to check that property is in object//using in operator
+
+if ("location" in cir1) {
+  console.log(`cir1 has location`);
+}
 //=========================================constructor function===========================================//
 /*
   Constructor Function===>to create objects (values of the proparties is differ)

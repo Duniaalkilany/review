@@ -177,7 +177,13 @@ console.log(instance1);
 console.log(MyFunction1 instanceof Function);
 console.log(instance1 instanceof MyFunction1);
 
-//===================================
+//================================call(),apply(),bind()=====================================//
+/*
+1.function is object 
+2.so function have proparties and methods
+3.some of these methods===>call(),apply(),bind()===>these three methods used to control the invocation 
+of the function  
+*/
 function MyFunction(role, email) {
   this.role = role;
   this.email = email;
@@ -185,7 +191,191 @@ function MyFunction(role, email) {
     return `${this.role}`;
   };
 }
-//
-let func = new MyFunction("admin", "d@gmail.com");
-console.log(func);
-console.log(MyFunction.call({}, "user", "malek@gmail.com"));
+//===================== Value vs Reference Types====================================//
+/*in js we have two catagories of types 
+1.value types===>primitives types
+string/number/boolean/symbol(ES6)/undefined/null
+2.referance types===>
+object/function/array(function/array is object )
+//so we can say that we have two catagories of type in js (primitivestypes(values types),referane(object)types)
+the question how primitives(value types)and referance types(objects) behave differently?
+*/
+//declare two primitives
+let x = 10;
+let y = x; //here i copy value of x
+x = 20;
+console.log(x); //20//last update foe x
+console.log(y); //10
+//in value types ===>each variable independent from each other
+//declare objects //referance types
+let o1 = { value: 10 };
+let o2 = o1; //here i copy refferance of o1(adress)
+o1.value = 20;
+console.log(o1); //20
+console.log(o2); //20
+
+/*when i store object in variable this object is not stored in variable//the objeect stored in memory and the adress of that memory location stored in the variable.
+so when i say o2=o1===>i copy the adress or the referance//so i store the adress and refferance also in o2
+so o1,o2===>reffere(pointing) to same object===>so when i edit /change the object itself //the changes will be visible for other variable which store same adress 
+
+
+//conclousion
+1.primitives(value types) are copied by their values
+2.referances(objects) are copied by their referrance(adress in memory)
+
+*/
+let number = 1;
+function increase(number) {
+  number++;
+}
+increase(number);
+console.log(number); //1//two independent copies//one copy outside //one inside//from outside i can deal with the global .
+
+let obee = { value: 10 };
+function increase2(obee) {
+  //copied by refeerance
+  obee.value++;
+}
+increase2(obee);
+//so changes will visible//because when i check referance (adress)==>changes apeare
+console.log(obee.value);
+
+let nu = 5;
+nu = nu + 1;
+console.log(nu);
+//==========================Objects Adding or Removing Properties ===================================//
+function Circle1(radius) {
+  this.radius = radius;
+  this.draw = function () {
+    return `draw`;
+  };
+}
+
+const cir1 = new Circle1(1);
+console.log(cir1);
+//adding proparty//add new prop(key==>location/value object)
+cir1.location = { x: 1, y: 2 };
+
+console.log(cir1);
+
+//delete ===>delete operator
+// console.log(delete cir1["location"]); //true
+
+//======================for..in loop )enumerating proparties of objects
+
+//=======================================Abstraction=====================================//
+// function Circle3() {
+//   this.radius = this.radius;
+//   //private proparty ===>want not be access from outside
+//  let defaultLocation = {
+//     x: 0,
+//     y: 0,
+//   };
+//   //private method===>expression way (local variable )
+// // let computeOptimumLocation = function () {
+
+// // };
+//   this.draw = function () {
+//   // computeOptimumLocation();
+//     console.log(`draw`);
+//   };
+// }
+
+const cir2 = new Circle3(1, 0, 0);
+
+//i have core concept called abstraction ===>hide complixity(details)===>show essentials
+//not all proparties/methods should be accessable for the consumer /client of this obj
+/*
+i can do abstraction (hide some prop/methods)==>can not access it outside by declare it as local variables inside function 
+-in our example make default location(implementation detail) private===>we do not want be accessable from outside  /
+*/
+
+//In other words, a closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time
+//Then you declare a variable in a function, you can only access it in the function. These variables are said to be scoped to the function. If you define any inner function within another function, this inner function is called a closure
+//to be more accurate in js i don not have private proparties because when i make some proparties
+//local variables inside constructor it will not be in the object but we can reffer to them as private proparties of the object
+
+/*
+implemantation of abstraction ===>
+1. i can not access defaultLocation from outside but what if i want to display it some where in the programme
+*/
+function Circle3(radius) {
+  this.radius = radius;
+  //private proparty ===>want not be access from outside
+  let defaultLocation = {
+    x: 0,
+    y: 0,
+  };
+
+  this.draw = function () {
+    console.log(`draw`);
+  };
+  //here i defined new proparty in this proparty i have get /set
+  Object.defineProperty(this, "defaultLocation", {
+    //if i want to get
+    get: function () {
+      return defaultLocation;
+    },
+    set: function (value) {
+      if (!value.x || !value.y) {
+        throw new Error(`invalid location`);
+      }
+      defaultLocation = value;
+    },
+  });
+}
+let cir = new Circle3(1);
+console.log(cir);
+//in do not have access to default location
+console.log(cir.defaultLocation);
+
+//exercise
+//desighn stopwatch object
+//const sw= new StopWatch
+//  Date.getTime() method returns the number of milliseconds===>git the time value in millisecnds
+function StopWatch() {
+  let endTime,
+    running,
+    starTime,
+    duration = 0;
+  //reset
+  this.reset = function () {
+    starTime = null;
+    endTime = null;
+    running = false;
+    duration = 0;
+  };
+  //start
+  this.start = function () {
+    if (running) {
+      throw new Error("watch already started");
+    }
+    running = true;
+    console.log(`running: ${running}`);
+    starTime = new Date();
+    console.log(`starTime:${starTime}`);
+  };
+  //stop
+  this.stop = function () {
+    if (!running) {
+      throw new Error("it is alredy stoped");
+    }
+    running = false;
+    console.log(` running : ${running}`);
+    endTime = new Date(); //date bject
+    console.log(` endTime: ${endTime}`);
+    const seconds = (endTime.getTime() - starTime.getTime()) / 1000;
+    console.log(`seconds :${seconds}`);
+    duration += seconds;
+    console.log(`duration:${duration}`);
+  };
+  ////duration property//combuted property
+  Object.defineProperty(this, "duration", {
+    get: function () {
+      return duration;
+    },
+  });
+}
+let sw = new StopWatch();
+
+// console.log(sw.duration);
