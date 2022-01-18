@@ -47,11 +47,6 @@ export { b as baby, sayHi };
 //named export
 const d = 200;
 const myArr = [1, 2, 3, 4, 5];
-export {
-  //Aliase for d
-  d as dd,
-  myArr,
-};
 
 //default export
 //default value exported from this module //i can import it any where without { }and with any name because it is default any name i will use it when i import it will point to to it
@@ -68,4 +63,28 @@ export {
 // export default obj;
 
 let v = 200;
-export default v;
+// export default v;
+//============== Extend Class From Another Module=============================//
+export default class User {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  //methods
+  get grtAge() {
+    return `your age : ${this.age}`;
+  }
+  getName = function () {
+    return `name: ${this.name}`;
+  };
+}
+
+class Car {
+  constructor(brand) {
+    this.name = brand;
+  }
+  present() {
+    return `I have ${this.name} `;
+  }
+}
+export { d as dd, myArr, Car };

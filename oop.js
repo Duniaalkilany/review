@@ -1206,14 +1206,3 @@ console.log(testt1.name.last);
 console.log(testt1.name);
 console.log(testt1.sayHii());
 console.log(testt1.showAge());
-
-/* four principles of object-oriented-programming: 
-1.Encapsulation,
- 2.Abstraction,
- 3. Inheritance, 
- 4.Polymorphism.
-*/
-
-/*
-
-*/

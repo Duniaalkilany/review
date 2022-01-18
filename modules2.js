@@ -38,12 +38,12 @@ console.log(all.sayHi("mlak"));
 //one line to import default then comma then named exported
 
 // import names, { dd, myArr } from "./modules.js";
-import obj, { dd, myArr } from "./modules.js";
-console.log(dd);
-console.log(myArr);
+// import obj, { dd, myArr } from "./modules.js";
+// console.log(dd);
+// console.log(myArr);
 
 // console.log(names("sara"));
-console.log(obj);
+// console.log(obj);
 // console.log(obj.name);
 // console.log(obj.age);
 ////======= when i import all i import default========
@@ -56,3 +56,57 @@ console.log(obj);
 // console.log(obj.age);
 // console.log(all.default);
 // console.log(obj);
+//============================= Extend Class From Another Module========================//
+// i import user (named export )
+// import * as everyThing from "./modules.js";
+//every thing ===>object (Module all exported things (named , default ))
+// console.log(everyThing);
+// let user1 = new everyThing.default("dynia", 24);
+// console.log(user1);
+// console.log(everyThing.dd);
+// console.log(everyThing.myArr);
+//whwn imported named export i should use same names if not i will get error(does not have export named )
+//but default export i can name it as i want
+import User, { dd, myArr, Car } from "./modules.js";
+//User===> is class to use it
+const user1 = new User("dunia", 24);
+console.log(user1.grtAge); //combuted prop
+console.log(user1.getName());
+
+//inheritance
+
+class Admin extends User {
+  //all proparties , names
+  constructor(name, age) {
+    super(name, age); //refferance variable to the main class // used when i want to access proparties/(variables
+    //methods ,constructor) in base class ===>parent from the derived (child class)
+    //super//call parent constructor /can access proparties of it
+  }
+  //override on get name method
+  getName = function () {
+    return `no need to your name`;
+  };
+}
+let user2 = new Admin("dunia", 14);
+console.log(user2);
+console.log(user2.name);
+console.log(user2.age);
+console.log(user2.grtAge);
+console.log(user2.getName());
+
+//extend
+
+class Model extends Car {
+  constructor(brand, model) {
+    super(brand); //===>call parent constructor , pass argument to it , can access properties/methods of parent from child
+    this.model = model;
+  }
+
+  show() {
+    return `${this.present()} , model :${this.model} `;
+  }
+}
+
+let model = new Model("BMW", 2019);
+console.log(model);
+console.log(model.show());
