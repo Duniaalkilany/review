@@ -1,17 +1,68 @@
-
-
-{
-  "userName": "dunia",
-  "location": "jordan",
-  "age": 24,
-  "married": false,
-  "skills": [["html","css"],["js","node.js"],["react","vue"]],
-  "skillsProgress":[{"html":70,"css":50},{"js":90,"node-js":90},{"react":80,"vue":null}],
-  "address": {
-    "USA": "marka",
-    "JORDAN": "Amman",
-    "UAE": ["newyork", "calefornia"],
-    "Aliase": null
+[
+  {
+    "userName": "dunia",
+    "location": "jordan",
+    "age": 24,
+    "married": false,
+    "skills": [
+      ["html", "css"],
+      ["js", "node.js"],
+      ["react", "vue"]
+    ],
+    "skillsProgress": [
+      { "html": 70, "css": 50 },
+      { "js": 90, "node-js": 90 },
+      { "react": 80, "vue": null }
+    ],
+    "address": {
+      "USA": "marka",
+      "JORDAN": "Amman",
+      "UAE": ["newyork", "calefornia"],
+      "Aliase": null
+    }
+  },
+  {
+    "userName": "dunia",
+    "location": "jordan",
+    "age": 24,
+    "married": false,
+    "skills": [
+      ["html", "css"],
+      ["js", "node.js"],
+      ["react", "vue"]
+    ],
+    "skillsProgress": [
+      { "html": 70, "css": 50 },
+      { "js": 90, "node-js": 90 },
+      { "react": 80, "vue": null }
+    ],
+    "address": {
+      "USA": "marka",
+      "JORDAN": "Amman",
+      "UAE": ["newyork", "calefornia"],
+      "Aliase": null
+    }
+  },
+  {
+    "userName": "dunia",
+    "location": "jordan",
+    "age": 24,
+    "married": false,
+    "skills": [
+      ["html", "css"],
+      ["js", "node.js"],
+      ["react", "vue"]
+    ],
+    "skillsProgress": [
+      { "html": 70, "css": 50 },
+      { "js": 90, "node-js": 90 },
+      { "react": 80, "vue": null }
+    ],
+    "address": {
+      "USA": "marka",
+      "JORDAN": "Amman",
+      "UAE": ["newyork", "calefornia"],
+      "Aliase": null
+    }
   }
-
-}
+]
