@@ -732,7 +732,7 @@ console.log(res);//promise{}
 
 const asyncOperations = async () => {
   const res = await fetch(
-    "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholics"
+    "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic"
   ); //if i have error in endpoint /promise will not reject (it will return response object /status 404)
   console.log("#################################", res); //response object
   if (res.status !== 200) {
@@ -760,7 +760,7 @@ asyncOperations() //non blocking code //not stop the code
   })
   .catch((error) => {
     console.log(error); //promise reject//if ofline (something wrong in api itself)
-    console.log(error.message);
+    // console.log(error.message);
   });
 
 //========================throwing errors===========================================//
