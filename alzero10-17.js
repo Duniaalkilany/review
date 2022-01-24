@@ -33,8 +33,8 @@ console.log(name);
 var user = "dunia alkilany",
   age = 24; //decleare mutiple vaeiables in same line //seperate them using comma
 
-console.log(hello); 
-console.log(typeof hello);//global variable decleare in the html //id="hello"
+console.log(hello);
+console.log(typeof hello); //global variable decleare in the html //id="hello"
 console.log(hello.innerHTML);
 hello.innerHTML = "option"; //chane the content of html variable or element which id=hello
 console.log(hello.innerHTML);
@@ -106,19 +106,19 @@ write dddd in console or write window.ddddd*/
 
 // console.log("dunia "alkilany"");//error
 //escape operator\ uses
-console.log("dunia 'alkilany'");//single inside double 
-console.log('dunia "alkilany"');//dpuble inside single 
-console.log("dunia \"alkilany\""); //escape operator(back slach)===>after is a character nor related to the prog language 
-console.log('dunia \'alkilany\'');//escape operator before (\)back slach
-console.log("print \\");//to print \ 
+console.log("dunia 'alkilany'"); //single inside double
+console.log('dunia "alkilany"'); //dpuble inside single
+console.log('dunia "alkilany"'); //escape operator(back slach)===>after is a character nor related to the prog language
+console.log("dunia 'alkilany'"); //escape operator before (\)back slach
+console.log("print \\"); //to print \
 console.log("dunia\
  abd\
- alkilany");//here i use escape operator to ignore new line ,line continue ()
+ alkilany"); //here i use escape operator to ignore new line ,line continue ()
 
-//new line 
+//new line
 console.log("dunia\nabd\nalkilany");
 console.log("hello\nfrom\nthe\nother\nside");
-let country="jordan\nkingdom"//new line
+let country = "jordan\nkingdom"; //new line
 console.log(country);
 
 // - Concatenation===>connect data together using plus(+)
@@ -137,22 +137,22 @@ let b = "JavaScript";
 let c = "And";
 let d = "Programming";
 
-console.log(a+" "+b+"\n"+c+" "+d);
+console.log(a + " " + b + "\n" + c + " " + d);
 console.log(`${a} ${b}
-${c} ${d}`);//no need to add \n
+${c} ${d}`); //no need to add \n
 
 // document.write(a+"\n"+b+" "+c+" "+d)
 // document.write(`${a} ${b}
-// ${c} ${d}`) 
+// ${c} ${d}`)
 //literal template
-let firstName="dunia"
-let lastName="alkilany"
-let markup=` <div class="card">
+let firstName = "dunia";
+let lastName = "alkilany";
+let markup = ` <div class="card">
 <div class="child">
   <h2>${firstName}</h2>
   <p>${lastName}</p>
 </div>
-</div>`
+</div>`;
 // document.write(markup)
 
 // - Variable And Concatenation Challenge
@@ -172,13 +172,13 @@ let markup=` <div class="card">
 Extra
 - Use ES6 Repeat*/
 
-let theTitle="Elzero",theDescription="Elzero Web School",theDate="25/10"
-let container=`<div clase="card">
+let theTitle = "Elzero",
+  theDescription = "Elzero Web School",
+  theDate = "25/10";
+let container = `<div clase="card">
 <h3>${theTitle}</h3>
 <p>${theDescription}</p>
 <span>${theDate}</span>
-</div>`
+</div>`;
 
-document.write(container.repeat(4))
-
-
+document.write(container.repeat(4));

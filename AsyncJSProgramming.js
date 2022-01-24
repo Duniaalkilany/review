@@ -764,6 +764,4 @@ asyncOperations() //non blocking code //not stop the code
   });
 
 //========================throwing errors===========================================//
-/*
-how to t
-*/
+//============================axios(make request using axios)========================//
