@@ -103,6 +103,7 @@ user is not the same variable User
 write dddd in console or write window.ddddd*/
 
 //String Syntax And Character Escape Sequences
+//using escape operator tell the javascript engine to treate the following character as literal character rather than special character for examp;e 
 
 // console.log("dunia "alkilany"");//error
 //escape operator\ uses

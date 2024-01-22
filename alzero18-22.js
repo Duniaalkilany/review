@@ -13,8 +13,8 @@
 */
 //undefined+number==> NAN
 console.log(10 + 20); //ari operator +
-console.log(10 + "Osama"); //concatenation//10Osama//output===>string
-console.log(typeof (10 + "Osama"));
+console.log(10 + "Dunia"); //concatenation//10Osama//output===>string
+console.log(typeof (10 + "Dunia"));
 console.log(10 - 20);
 console.log(10 - "Osama"); // NaN//Not A Number
 console.log(typeof NaN); //number//(weired:()
@@ -49,6 +49,7 @@ console.log(num3); //5
 
 let num4 = 20;
 console.log(--num4); //do pre //sub then print
+
 
 /*-----------------------------video 19------------------------------------- */
 //Unary Plus And Negation Operator//converte to number//positive //negative

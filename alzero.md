@@ -8,15 +8,13 @@
 
 - Core Language
 
-- DOM //document object model
+- DOM //document object model===interact with html from js 
 
 - BOM //browser object model
 
 - OOP //object oriented programming
 
-- ES6, ES7
-
-# VS notes :
+-  notes :
 
 - check last version ===> help==>check for updates
 - bracket pair colorize
@@ -28,6 +26,7 @@
 - live server ===>localhost server to check your program
 - Path Intellisense===>autocompletes filenames.
 - Prettier ===>Formatter===>format if you have spaces ...===>ctrl+s===>you will have formatted code
+- Emmet : Quick structure for html and css https://www.freecodecamp.org/news/how-to-write-faster-html-and-css-using-emmet/
 
 # connect html with js file
 
@@ -89,10 +88,11 @@ opening===>inspect===>console(very useful developer tool //logs//running js )
 
 https://developer.mozilla.org/en-US/docs/Web/API
 
-# ES6===>ECMAScript
+# ES6===>ECMAScript15 or ECMAScript6 is the newer version of JavaScript that was introduced in 2015 (Modern JS)
 
 //object
 //oop
 //BOM
 //
 //json /api's
+

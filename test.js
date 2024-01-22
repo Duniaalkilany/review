@@ -10,9 +10,7 @@ function satHello() {
   return this; //refeer to the owner of sayHello function ===>window(global context)
 }
 console.log(satHello());
-this.setTimeout(() => {
-  console.log(`Hello`);
-}, 2000);
+ 
 // no need tp explicity type (window object /global object (context))
 setTimeout(() => {
   console.log(`Hello`);
@@ -20,9 +18,6 @@ setTimeout(() => {
 
 console.log(this === window);
 
-window.setInterval(() => {
-  console.log(`i will run every 2 second `);
-}, 2000);
 //document is aproperty of window (global object) of browser ===> related to DOM (interact with html from js )
 console.log(window.document.querySelector("h1"));
 console.log(typeof window.document); //object
