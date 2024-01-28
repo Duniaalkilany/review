@@ -10,7 +10,8 @@
   % Modulus (Division Remainder)
   ++ Increment [ Post(after) / Pre(before) ]
   -- Decrement [ Post / Pre ]
-*/
+ note that all the ari operation deal with the number inside strinds as number except the + operator deal with it as strings and do concatenating */
+
 //undefined+number==> NAN
 console.log(10 + 20); //ari operator +
 console.log(10 + "Dunia"); //concatenation//10Osama//output===>string
@@ -53,6 +54,12 @@ console.log(--num4); //do pre //sub then print
 
 /*-----------------------------video 19------------------------------------- */
 //Unary Plus And Negation Operator//converte to number//positive //negative
+/*ways to convert string to number 
+1- unary plus ,negation operators 
+2-using Bitwise operators
+3- Using Number() method
+4- using parseInt method
+*/
 
 /*
   - + Unary Plus [Return Number If Its Not Number]//+before//return number if it is number and also return number if it is not number 
@@ -84,7 +91,7 @@ console.log(+undefined); //NAN
 console.log(+""); //0
 //unary negation also return number but negates it
 console.log(-100); //-100
-console.log(-"100"); //-100
+; //-100
 console.log(-"-100"); //100
 console.log(-"dunia"); //NAN
 console.log(-"10.2"); //-10.2
