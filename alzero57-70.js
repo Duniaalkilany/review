@@ -2,8 +2,9 @@
 /*
   Function
   - What Is Function ?
+  - كود بينفذ امر معين
   //function //do task //lead to DRY===>(Don't Repeat Yourself)
-  - User-Defined vs Built In
+  - User-Defined vs Built In functions
   - Syntax + Basic Usage
   - Example From Real Life
   - Parameter + Argument
@@ -75,11 +76,12 @@ generateYears2(2010, 2021, 2020);
   Function
   - Return
   //nothing execute after return //so return mean go out of the function //break the function
- 
+ -ممكن استخدم ال  return to stop or cut the loop 
+ -so return like break in loop 
   - Automatic Semicolon Insertion [No Line Terminator Allowed]
   - Interrupting
 */
-//may the function not direcyly do the task //i return some thing from the function then i use the function to use what is returned
+//may the function not directly do the task //i return some thing from the function then i use the function to use what is returned
 function hi(useruserName) {
   return `Hi ${useruserName}`;
 }
@@ -93,7 +95,7 @@ console.log(hi("marah"));
 let result = hi("mlk");
 console.log(result);
 
-//wite a function to calculate sum of num1//num2//return the value
+//write a function to calculate sum of num1//num2//return the value
 
 function calculation(num1, num2) {
   let sum = num1 + num2;
@@ -326,7 +328,7 @@ setTimeout(function () {
   document.write(`after 2 seconds i work , wait mee :))))))))`);
   console.log(`after 2 seconds i work , wait mee :))))))))`);
 }, 2000);
-
+;
 //how can you use named function with events
 //1.without name (anonymous)
 document.getElementById("show2").onclick = function () {
@@ -438,7 +440,7 @@ console.log(sayMessage("dunia", "alkilany"));
 let print = (num1, num2) => num1 + num2;
 console.log(print(20, 30));
 
-
+  
 //arrow 
 
 /*

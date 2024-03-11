@@ -151,7 +151,7 @@ theGender === "Male" ? console.log("Mr") : console.log("Mrs");
 //   console.log(result);
 // }
 
-//using ternary to declare variable according to condition .
+//using ternary to declare variable according to condition .//تخزين قيمتها في متغير 
 let result = theGender === "Male" ? "Mr" : "Mrs";
 
 document.write(`Hello ${result}`);
@@ -271,7 +271,7 @@ if (st.slice(0, 6).repeat(2) === "ElzeroElzero") {
     case 2:
       // Code Block
       break;
-    default:
+    default:no case match ,  like else in if else
       // Code Block
   }
   - default Ordering //if start with defaul add break after the block of code 
@@ -282,7 +282,8 @@ if (st.slice(0, 6).repeat(2) === "ElzeroElzero") {
   case 2:
 
   //block of code 
-  break;
+  break;/تفصل بين كل case  والتانية 
+  وبتعمل stop لل check  ما دام الشرط اتحقق 
 
 */
 

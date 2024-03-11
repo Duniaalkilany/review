@@ -1,6 +1,6 @@
 /*==========================video 48====================================*/
 /*
-  Loop
+  Loop //used to save time 
   - For
   for ([1] [2] [3]) {
     // Block Of Code
@@ -9,7 +9,7 @@
 
 //loop is important with arrays
 //[1]===>initialization
-//[2]===>condition
+//[2]===>condition/ false mean stop !
 //[3]===>action
 
 //write a programe to print in console numbers from 0-9//10 employee//id start from 0
@@ -101,7 +101,7 @@ for (let i = 0; i < products.length; i++) {
 }
 
 //label
-// i can control the main loop from the nested loop
+
 products1 = ["Keyboard", "Mouse", "Pen", "Pad", "Monitor"];
 MainLoop: for (let i = 0; i < products1.length; i++) {
   console.log(products1[i]);

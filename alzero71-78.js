@@ -17,7 +17,7 @@
   - Map Return A New Array
 
   Examples
-  - Anonymous Function
+  - Anonymous FunctionzZzz
   - Named Function
 
 */
@@ -107,6 +107,7 @@ console.log(my2);
   - Ignore Boolean Value
 */
 //write function to swap charac from capital to small and vise versa
+//replace is not correct every time (modifying the same string in a loop)
 
 let word;
 
